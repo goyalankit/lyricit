@@ -4,5 +4,5 @@ require 'lyricit/lyrics_api'
 require 'lyricit/make_it_personal'
 require 'faraday'
 module Lyricit
-  # Your code goes here...
+  # Nothing Fancy here
 end

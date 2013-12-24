@@ -60,15 +60,3 @@ module Lyricit
         end
     end
 end
-
-
-#Ids of all songs
-#`echo "tell application \\"iTunes\\" to database ID of tracks of library playlist 1"  | /usr/bin/osascript`
-
-#set lyrics by id
-#`osascript -e "tell application \\"iTunes\\" to set lyrics of (every track where database ID is 215) to \\"sdf\\" "`
-
-#db_ids = `osascript -e "tell application \\"iTunes\\" to (get database ID of every track in current playlist)"`
-#
-#`echo "tell application \\"iTunes\\" to database id of (some track of library playlist 1 whose artist is \\"Lorde\\")"  | /usr/bin/osascript`
-#names[song_id] = `osascript -e "tell application \\"iTunes\\" to get name of (every track where database ID is #{song_id})"`

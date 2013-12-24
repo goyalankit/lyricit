@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ankit3goyal@gmail.com"]
   spec.description   = %q{Update lyrics on iTunes from command line.}
   spec.summary       = %q{Update lyrics on iTunes by simply giving the song name from command line.}
-  spec.homepage      = ""
+  spec.homepage      = "http://goyalankit.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
