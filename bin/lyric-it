@@ -80,7 +80,5 @@ OptionParser.new do |o|
   o.parse!
 end
 
-p :current => $current, :interactive => $songname, :filename => $filename
-
 upload_lyrics = UploadLyrics.new
 upload_lyrics.run
