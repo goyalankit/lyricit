@@ -1,5 +1,7 @@
 # Lyricit
 
+[![Gem Version](https://badge.fury.io/rb/lyricit.png)](http://badge.fury.io/rb/lyricit)
+
 Add lyrics to your itunes songs through command line.
 
 ## Installation
@@ -48,7 +50,7 @@ Update on iTunes? [Y/n]:
 
 ```
 
-Answer Y to the above question, if lyrics are what you expect.
+Answer `Y` to the above question, if lyrics are what you expect.
 
 ## TODO
 
