@@ -30,7 +30,7 @@ module Lyricit
             dirty_track_names = %x(osascript -e "tell application \\"iTunes\\" to name of tracks of library playlist 1")
             track_names = dirty_track_names.split(',').map(&:strip)
 
-            matching_names = track_names.select{|v| v.match(/#{input}/)}
+            matching_names = track_names.select{|v| v.downcase.match(/#{input.downcase}/)}
             name_id = {}
             matching_names.each do |name|
                 temp = %x(osascript -e "tell application \\"iTunes\\" to database id of (some track of library playlist 1 whose name is \\"#{name}\\")")
