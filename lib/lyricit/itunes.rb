@@ -56,6 +56,7 @@ module Lyricit
             end
 
             print "|#{'-'* (maxk + maxv + 2)}|\n"
+            return 0
         end
     end
 end

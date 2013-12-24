@@ -1,0 +1,75 @@
+#!/usr/bin/env ruby
+
+require 'lyricit'
+require 'optparse'
+
+class UploadLyrics
+
+    def initialize
+        @itunes = Lyricit::Itunes.new
+        @write_lyrics = false
+        @song_name = ""
+    end
+
+    def ask_for_song_name
+        print "Enter song name: "
+        @song_name = STDIN.gets.chomp
+    end
+
+    def find_by_name
+        results = @itunes.find_by_name @song_name
+        abort if results.nil?
+    end
+
+    def ask_for_db_id
+        print "Enter the Id for which you want the lyrics: "
+        @db_id = STDIN.gets.chomp
+    end
+
+    def get_lyrics
+        artist, name = @itunes.song_and_artist_by_id @db_id
+        lyrics_api = Lyricit::LyricsApi.new artist, name
+        @lyrics = lyrics_api.get_lyrics
+        abort unless @lyrics
+    end
+
+    def confirm_lyrics
+        print @lyrics
+        print "Update on iTunes? [Y/n]: "
+        update = STDIN.gets.chomp
+        @write_lyrics = update.downcase == 'y' ? true : false
+        abort if @write_lyrics
+    end
+
+    def write_lyrics
+        if @write_lyrics
+            @itunes.set_lyrics_by_id @db_id, @lyrics
+            print "Updated on iTunes!"
+        end
+    end
+
+    def run
+        if $songname
+            @song_name = $songname
+        else
+            ask_for_song_name
+        end
+        find_by_name
+        ask_for_db_id
+        get_lyrics
+        confirm_lyrics
+        write_lyrics
+    end
+end
+
+OptionParser.new do |o|
+  o.on('-c', '--current','add lyrics for current song') { |b| $current = b }
+  o.on('-s SONGNAME', 'song name for which you want to add the lyrics') { |songname| $songname = songname }
+  o.on('-h') { puts o; exit }
+  o.parse!
+end
+
+p :current => $current, :interactive => $songname, :filename => $filename
+
+upload_lyrics = UploadLyrics.new
+upload_lyrics.run

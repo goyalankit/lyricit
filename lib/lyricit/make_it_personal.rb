@@ -1,7 +1,9 @@
 module Lyricit
     module MakeItPersonal
         def self.get_lyrics name, artist
-            res = Faraday.get("http://makeitpersonal.co/lyrics?artist=#{artist}&title=#{name}")
+            return :incomplete_info if name.strip == "" || artist.strip == ""
+
+            res = Faraday.get("http://makeitpersonal.co/lyrics?artist=#{artist.strip}&title=#{name.strip}")
 
             return nil if res.status.to_i != 200
 

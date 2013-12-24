@@ -20,6 +20,9 @@ module Lyricit
             when :not_found
                 puts "Sorry could not find the lyrics for the requested song."
                 return nil
+            when :incomplete_info
+                puts "Either Artist or Song Title seems to be incorrect!"
+                return nil
             else
                 return lyrics
             end

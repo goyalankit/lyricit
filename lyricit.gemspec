@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Lyricit::VERSION
   spec.authors       = ["Ankit Goyal"]
   spec.email         = ["ankit3goyal@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Update lyrics on iTunes from command line.}
+  spec.summary       = %q{Update lyrics on iTunes by simply giving the song name from command line.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "faraday"
 end
