@@ -2,15 +2,19 @@ module Lyricit
     class Itunes
         def song_and_artist_by_current_track
             artist=%x(osascript -e 'tell application "iTunes" to artist of current track as string');
-            name=`osascript -e 'tell application "iTunes" to name of current track as string'`;
+            name=%x(osascript -e 'tell application "iTunes" to name of current track as string');
             [artist, name]
         end
 
         def song_and_artist_by_id db_id
             return nil if db_id.strip == ""
-            artist = `osascript -e "tell application \\"iTunes\\" to get artist of (every track where database ID is #{db_id.strip})"`
-            name = `osascript -e "tell application \\"iTunes\\" to get name of (every track where database ID is #{db_id.strip})"`
+            artist = %x(osascript -e "tell application \\"iTunes\\" to get artist of (every track where database ID is #{db_id.strip})")
+            name = %x(osascript -e "tell application \\"iTunes\\" to get name of (every track where database ID is #{db_id.strip})")
             [artist, name]
+        end
+
+        def db_id_of_current_track
+            %x(osascript -e 'tell application "iTunes" to database id of current track as string')
         end
 
         def add_lyrics lyrics, track

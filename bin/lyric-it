@@ -33,6 +33,7 @@ class UploadLyrics
                 print "Seems like you are not playing anything."
                 abort
             end
+            @db_id = @itunes.db_id_of_current_track
         else
             artist, name = @itunes.song_and_artist_by_id @db_id
         end
@@ -46,7 +47,7 @@ class UploadLyrics
         print "Update on iTunes? [Y/n]: "
         update = STDIN.gets.chomp
         @write_lyrics = update.downcase == 'y' ? true : false
-        abort if @write_lyrics
+        abort unless @write_lyrics
     end
 
     def write_lyrics
