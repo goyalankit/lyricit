@@ -27,7 +27,15 @@ class UploadLyrics
     end
 
     def get_lyrics
-        artist, name = @itunes.song_and_artist_by_id @db_id
+        if $current
+            artist, name = @itunes.song_and_artist_by_current_track
+            if artist.strip == "" && name.strip == ""
+                print "Seems like you are not playing anything."
+                abort
+            end
+        else
+            artist, name = @itunes.song_and_artist_by_id @db_id
+        end
         lyrics_api = Lyricit::LyricsApi.new artist, name
         @lyrics = lyrics_api.get_lyrics
         abort unless @lyrics
@@ -49,13 +57,15 @@ class UploadLyrics
     end
 
     def run
-        if $songname
-            @song_name = $songname
-        else
-            ask_for_song_name
+        unless $current
+            if $songname
+                @song_name = $songname
+            else
+                ask_for_song_name
+            end
+            find_by_name
+            ask_for_db_id
         end
-        find_by_name
-        ask_for_db_id
         get_lyrics
         confirm_lyrics
         write_lyrics

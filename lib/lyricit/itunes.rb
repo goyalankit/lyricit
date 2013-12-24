@@ -1,6 +1,6 @@
 module Lyricit
     class Itunes
-        def current_track
+        def song_and_artist_by_current_track
             artist=%x(osascript -e 'tell application "iTunes" to artist of current track as string');
             name=`osascript -e 'tell application "iTunes" to name of current track as string'`;
             [artist, name]
