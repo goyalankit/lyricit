@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Lyricit by goyalankit</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Lyricit</h1>
+        <h2>Gem to update itunes lyrics from command line</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/goyalankit/lyricit/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/goyalankit/lyricit/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/goyalankit/lyricit" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="lyricit" class="anchor" href="#lyricit"><span class="octicon octicon-link"></span></a>Lyricit</h1>
+
+<p><a href="http://badge.fury.io/rb/lyricit"><img src="https://badge.fury.io/rb/lyricit.png" alt="Gem Version"></a></p>
+
+<p>Add lyrics to your itunes songs through command line.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<pre><code>$ gem install lyricit
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To update the lyrics for current song.</p>
+
+<pre><code>$ lyricit -c
+</code></pre>
+
+<p>To update the lyrics for a particular song</p>
+
+<pre><code>$ lyricit -s somebody
+</code></pre>
+
+<p>Above command will give you the list of songs matching the <code>somebody</code></p>
+
+<pre><code>1 results found
+|-----------------------------------------|
+|Id     | Name                            |
+
+|-----------------------------------------|
+|179    | Somebody That I Used To Know    |
+|-----------------------------------------|
+Enter the Id for which you want the lyrics: 
+
+</code></pre>
+
+<p>Enter the Id for the song you want to update. <code>179</code> in above example.</p>
+
+<p>Now the lyrics will be displayed on the terminal.</p>
+
+<pre><code>
+"'Gotye:"'
+Now and then I think of when we were together
+Like when you said you felt so happy you could die
+Told myself that you were right for me
+But felt so lonely in your company
+But that was love and it's an ache I still remember
+...
+
+Update on iTunes? [Y/n]:
+
+</code></pre>
+
+<p>Answer <code>Y</code> to the above question, if lyrics are what you expect.</p>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ol>
+<li>Add support for more APIs to fetch the song lyrics if first API fails.</li>
+<li>Add search by artist name. Provide more options.</li>
+</ol><h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
