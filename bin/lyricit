@@ -12,6 +12,7 @@ class UploadLyrics
     end
 
     def ask_for_song_name
+        print "** type: lyricit -h to see all options **\n"
         print "Enter song name: "
         @song_name = STDIN.gets.chomp
     end
